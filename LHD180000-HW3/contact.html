@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="mystyle.css" />
+    <script src="dataAndTime.js"></script>
+  </head>
+  <body>
+    <h2>Andre Duong - LHD180000</h2>
+    <div class="container">
+      <form id="userForm">
+        <!-- first name -->
+        <label for="fname">First name: </label>
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+        />
+        <br />
+
+        <!-- last name -->
+        <label for="lname">Last name: </label>
+        <input
+          type="text"
+          id="lname"
+          name="lname"
+        />
+        <br />
+
+        <!-- phone number -->
+        <label for="phone">Phone number:</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+        />
+        <br />
+
+        <!-- gender radio button -->
+        <label for="gender">Select gender: </label> <br />
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label><br />
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label><br />
+        <br />
+
+        <!-- email -->
+        <label for="email">Email address:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+        />
+        <br />
+
+        <!-- comment -->
+        <label for="comment">Comment: </label>
+        <textarea
+          id="comment"
+          name="comment"
+          rows="4"
+          cols="50"
+        ></textarea>
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <script>
+      // Initialize variables
+      let fname = document.querySelector("#fname");
+      let lname = document.querySelector("#lname");
+      let email = document.querySelector("#email");
+      let phone = document.querySelector("#phone");
+      let male = document.querySelector("#male");
+      let female = document.querySelector("#female");
+      let comment = document.querySelector("#comment");
+
+      // On submit
+      document.querySelector("#userForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Validate that all information is filled
+        if (
+          !fname.value ||
+          !lname.value ||
+          !email.value ||
+          !phone.value ||
+          !comment.value
+        ) {
+          alert("Please fill in all information.");
+        }
+
+        // Gender must be selected
+        if (male.checked || female.checked) {
+        } else {
+          alert("Gender must be selected.");
+        }
+
+        // First name and last name should be alphabetic only
+        let letters = /^[A-Za-z]+$/;
+        if (!fname.value.match(letters) || !lname.value.match(letters)) {
+          alert("First name and last name should be alphabetic only.");
+        }
+
+        // First letter of name should be capitalized
+        if (fname.value[0] != fname.value[0].toUpperCase()) {
+          alert("First letter of first name should be capitalized.");
+        }
+        if (lname.value[0] != lname.value[0].toUpperCase()) {
+          alert("First letter of last name should be capitalized.");
+        }
+
+        // First name and last name cannot be the same
+        if (fname.value == lname.value) {
+          alert("First name and last name cannot be the same.");
+        }
+
+        // Phone number must follow the (ddd)ddd-dddd format
+        let phoneFormat = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
+        if (!phone.value.match(phoneFormat)) {
+          alert("Phone number must follow the (ddd)ddd-dddd format");
+        }
+
+        // Email address must contain @ and .
+        if (!email.value.includes("@") || !email.value.includes(".")) {
+          alert("Email address must contain @ and .");
+        }
+
+        // Comment must be at least 10 characters
+        if (comment.value.length < 10) {
+          alert("Comment must be at least 10 characters.");
+        }
+      });
+    </script>
+  </body>
+</html>

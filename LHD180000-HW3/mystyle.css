@@ -1,0 +1,79 @@
+.header {
+  background-color: orange;
+  padding: 20px;
+  text-align: center;
+  background-image: "background.jpg";
+  background-repeat: repeat-y;
+  border-style: dotted;
+  border-color: aqua;
+  border-width: thick;
+  opacity: inherit;
+}
+
+.topnav a {
+  color: red;
+  background-color: lightblue;
+  float: left;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table; /*Let the element behave like a <table> element*/
+  clear: both;
+}
+
+/* Left column */
+.column.side {
+  width: 30%;
+  float: left;
+}
+
+/* Main column */
+.column.main {
+  width: 70%;
+  float: left;
+}
+
+.footer {
+  background-color: blue;
+  width: 100%;
+  text-align: center;
+  float: left;
+  font-size: medium;
+  font-style: italic;
+  font-weight: bold;
+  visibility: inherit;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  vertical-align: 0px;
+}
+
+/* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+}

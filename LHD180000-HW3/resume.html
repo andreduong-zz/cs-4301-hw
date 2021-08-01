@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+   label{
+       font-weight: bold;
+   }
+   .resume {
+   background-color: #eee;
+   color: #444;
+   cursor: pointer;
+   padding: 18px;
+   width: 100%;
+   border: none;
+   text-align: left;
+   outline: none;
+   font-size: 15px;
+   font-weight: bold;
+   transition: 0.4s;
+   }
+
+   .active, .resume:hover {
+   background-color: #ccc;
+   }
+
+   .panel {
+   font-size: 12px;
+   padding: 10px 18px;
+   display: none;
+   background-color: white;
+   overflow: hidden;
+   }
+   </style>
+   </head>
+   <body>
+
+       <h2>Andre Duong - LHD180000</h2>
+       <label for="fontSize">Font Size</label>
+       <select name="fontSize" id="fontSize">
+           <option value="fontOne">10px</option>
+           <option value="fontTwo">15px</option>
+           <option value="fontThree">20px</option>
+           <option value="fontFour">25px</option>
+       </select>
+       <button type="button" onclick="updateFontSize();">Change Font Size</button>
+       <br/><br/>
+       <label for="colorBackground">Background Color</label>
+       <select name="colorBackground" id="colorBackground">
+           <option value="#fff">White</option>
+           <option value="#e2e2e2">Grey</option>
+           <option value="#0000ff">Blue</option>
+           <option value="#ffff00">Yellow</option>
+       </select>
+       <button type="button" onclick="updateColor();">Change Background Color</button>
+       <br/><br/>
+
+       <button class="resume">Contact Information</button>
+       <div class="panel">
+           <label for="name" >Name: </label>
+           <span>Andre Duong</span><br/><br/>
+           <label for="email">Email: </label>
+           <span>andreduong07@gmail.com</span><br/><br/>
+           <label for="phone">Phone: </label>
+           <span>4699016548</span><br/><br/>
+           <label for="location">Address: </label>
+           <span>Dallas, Texas</span><br/><br/>
+       </div>
+
+       <button class="resume">Education</button>
+       <div class="panel">
+           <label for="school" >School: </label>
+           <span>UT Dallas</span><br/><br/>
+           <label for="gpa">GPA: </label>
+           <span>3.8</span><br/><br/>
+           <label for="gradyear">Graduation year:</label>
+           <span>2021</span><br/><br/>
+       </div>
+
+       <button class="resume">Skills</button>
+       <div class="panel">
+           <label for="firstSkill" >Programming Languages:</label>
+           <span>Java, Python, JavaScript, TypeScript</span><br/><br/>
+           <label for="exertiseLevel">Technologies</label>
+           <span>AWS, React</span><br/><br/>
+       </div>
+      
+       <button class="resume">Work Experience</button>
+       <div class="panel">
+           <label for="firstCompany" >Company Name: </label>
+           <span>Microsoft (Summer 2021)</span><br/><br/>
+           <label for="yoe">Technologies: </label>
+           <span>TypeScript</span><br/><br/>
+       </div>
+
+       <script>
+       var acc = document.getElementsByClassName("resume");
+       var i;
+
+       for (i = 0; i < acc.length; i++) {
+       acc[i].addEventListener("click", function() {
+           this.classList.toggle("active");
+           var panel = this.nextElementSibling;
+           if (panel.style.display === "block") {
+           panel.style.display = "none";
+           } else {
+           panel.style.display = "block";
+           }
+       });
+       }
+       // Changes the font size of the sub section
+       function updateFontSize(){
+           var size = document.getElementById("fontSize");
+           var fontSizeCustom = size.options[size.selectedIndex].text;
+           var cols = document.getElementsByClassName('panel');
+           for(i = 0; i < cols.length; i++) {
+               cols[i].style.fontSize = fontSizeCustom;
+           }
+       }
+       // Changes the background color of the web body
+       function updateColor(){
+           var color = document.getElementById("colorBackground");
+           var colorCustom = color.value;
+           document.body.style.backgroundColor = colorCustom;
+       }
+       </script>
+   </body>
+</html>

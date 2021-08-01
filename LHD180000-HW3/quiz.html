@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="dataAndTime.js"></script>
+    <title>Quiz</title>
+  </head>
+  <body>
+    <h2>Andre Duong - LHD180000</h2>
+    <div id="container">
+      <h3 id="question"></h3>
+      <input
+        type="text"
+        id="answer"
+        name=""
+        placeholder="Answer is case-sensitive"
+      />
+      <button id="isAnswerTrue" onclick="isAnswerTrue()">Submit</button><br />
+      <!-- span to display appropriate message -->
+      <span id="validate"></span><br /><br />
+      <button onclick="next()">Next</button>
+      <button onclick="skip()">Skip</button>
+    </div>
+
+    <!-- block to display score and time and start again button -->
+    <div id="displayResults" style="display: none">
+      Your Score:
+      <h1 id="score"></h1>
+      <br />
+      Time taken:
+      <h3 id="time"></h3>
+      <br />
+      <!-- button to start quiz again -->
+      <button onclick="displayAnswers()">View answers</button>
+      <div id="display"></div>
+      <button onclick="startAgain()">Start again</button>
+    </div>
+    <script type="text/javascript" src="forQuiz.js"></script>
+  </body>
+</html>
